@@ -15,13 +15,14 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { v4 as uuidv4 } from 'uuid';
-import { LayoutTemplate, Package, User, MapPin, LayoutGrid, Sparkles, MonitorPlay, MessageSquare, Image as ImageIcon, Film } from 'lucide-react';
+import { LayoutTemplate, Package, User, MapPin, LayoutGrid, Sparkles, MonitorPlay, MessageSquare, Image as ImageIcon, Film, Wand2 } from 'lucide-react';
 
 import { CampaignAssetNode } from './components/nodes/CampaignAssetNode';
 import { CampaignGeneratorNode } from './components/nodes/CampaignGeneratorNode';
 import { CampaignOutputNode } from './components/nodes/CampaignOutputNode';
 import { CampaignTextNode } from './components/nodes/CampaignTextNode';
 import { AssetGeneratorNode } from './components/nodes/AssetGeneratorNode';
+import { TextToImageNode } from './components/nodes/TextToImageNode';
 import { SceneTimelineNode } from './components/nodes/SceneTimelineNode';
 import { ChatNode } from './components/nodes/ChatNode';
 import { GroupNode } from './components/nodes/GroupNode';
@@ -32,6 +33,7 @@ const nodeTypes = {
   campaignOutput: CampaignOutputNode,
   campaignText: CampaignTextNode,
   assetGenerator: AssetGeneratorNode,
+  textToImage: TextToImageNode,
   sceneTimeline: SceneTimelineNode,
   chat: ChatNode,
   customGroup: GroupNode,
@@ -300,13 +302,22 @@ function Sidebar() {
             <span className="text-sm font-medium text-zinc-700">Screen Content</span>
           </div>
 
-          <div 
+          <div
             className="p-3 border border-zinc-200 rounded-lg bg-zinc-50 cursor-grab hover:border-indigo-300 hover:bg-white transition-colors flex items-center gap-3"
             onDragStart={(event) => onDragStart(event, 'assetGenerator')}
             draggable
           >
             <ImageIcon className="w-4 h-4 text-indigo-500" />
             <span className="text-sm font-medium text-zinc-700">Asset Generator</span>
+          </div>
+
+          <div
+            className="p-3 border border-zinc-200 rounded-lg bg-zinc-50 cursor-grab hover:border-violet-300 hover:bg-white transition-colors flex items-center gap-3"
+            onDragStart={(event) => onDragStart(event, 'textToImage')}
+            draggable
+          >
+            <Wand2 className="w-4 h-4 text-violet-500" />
+            <span className="text-sm font-medium text-zinc-700">Text to Image</span>
           </div>
 
           <div className="my-4 border-t border-zinc-200"></div>
